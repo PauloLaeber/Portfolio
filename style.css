@@ -39,6 +39,32 @@ body {
   background-color: #d8dde5;
 }
 
+.menu-projetos {
+  position: relative;
+}
+
+.submenu-projetos {
+  display: none;
+}
+
+.menu-projetos:hover .submenu-projetos {
+  display: block;
+}
+
+.link-submenu {
+  display: block;
+  padding: 12px 20px 12px 40px;
+  color: #4a4a4a;
+  background-color: #c5c5c5;
+  text-decoration: none;
+}
+
+.link-submenu:hover {
+  color: #5b8def;
+  background-color: #d8dde5;
+}
+
+
 
 .conteudo {
   background-color: #fafafa;
