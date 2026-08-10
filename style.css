@@ -15,14 +15,35 @@ body {
   grid-template-rows: 1fr auto;
 }
 
+
 .menu-esquerdo,
 .menu-direito {
   background-color: #e5e5e5;
 }
 
+.navegacao-principal {
+  display: flex;
+  flex-direction: column;
+}
+
+.link-menu {
+  display: block;
+  padding: 16px 20px;
+  color: #4a4a4a;
+  background-color: #e5e5e5;
+  text-decoration: none;
+}
+
+.link-menu:hover {
+  color: #5b8def;
+  background-color: #d8dde5;
+}
+
+
 .conteudo {
   background-color: #fafafa;
 }
+
 
 .rodape {
   grid-column: 1 / 4;
