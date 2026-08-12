@@ -1,5 +1,5 @@
 const pastas = ["/Projetos/", "/Teorias/"]
-const estaNaPastaProjetos = window.location.pathname.includes(pastas);
+const estaNaPastaProjetos = pastas.some(str => window.location.pathname.includes(str));
 const caminhoRaiz = estaNaPastaProjetos ? '../' : './';
 
 const menuPrincipal = document.querySelector("#menu-principal");
