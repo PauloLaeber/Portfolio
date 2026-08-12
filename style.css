@@ -41,6 +41,43 @@ body {
   background-color: #d8dde5;
 }
 
+.menu-expansivel {
+  position: relative;
+}
+
+.botao-menu {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.indicador-menu {
+  transition: transform 0.3s ease;
+}
+
+.menu-expansivel.aberto .indicador-menu {
+  transform: rotate(180deg);
+}
+
+.submenu {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.submenu>* {
+  overflow: hidden;
+}
+
+.menu-expansivel.aberto .submenu {
+  grid-template-rows: 1fr;
+}
+
 .link-submenu {
   display: block;
   color: #4a4a4a;
@@ -48,103 +85,17 @@ body {
   text-decoration: none;
 }
 
-
-.menu-projetos {
-  position: relative;
-}
-
-.submenu-projetos {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.3s ease;
-}
-
-.submenu-projetos>* {
-  overflow: hidden;
-}
-
-.menu-projetos.aberto .submenu-projetos {
-  grid-template-rows: 1fr;
-}
-
-.botao-projetos {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: none;
-  font-family: inherit;
-  font-size: inherit;
-  cursor: pointer;
-}
-
-.indicador-projetos {
-  transition: transform 0.3s ease;
-}
-
-.menu-projetos.aberto .indicador-projetos {
-  transform: rotate(180deg);
-}
-
-.menu-projetos.aberto .link-submenu {
-  padding: 12px 20px 12px 40px;
-}
-
 .link-submenu:hover {
   color: #5b8def;
   background-color: #d8dde5;
 }
 
-
-.menu-teorias {
-  position: relative;
-}
-
-.submenu-teorias {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.3s ease;
-}
-
-.submenu-teorias>* {
-  overflow: hidden;
-}
-
-.menu-teorias.aberto .submenu-teorias {
-  grid-template-rows: 1fr;
-}
-
-.botao-teorias {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: none;
-  font-family: inherit;
-  font-size: inherit;
-  cursor: pointer;
-}
-
-.indicador-teorias {
-  transition: transform 0.3s ease;
-}
-
-.menu-teorias.aberto .indicador-teorias {
-  transform: rotate(180deg);
-}
-
-.menu-teorias.aberto .link-submenu {
+.menu-expansivel.aberto .link-submenu {
   padding: 12px 20px 12px 40px;
 }
 
-.link-submenu:hover {
-  color: #5b8def;
-  background-color: #d8dde5;
-}
 
-
-
-/* COnfiguração do conteúdo principal */
+/* Configuração do conteúdo principal */
 .conteudo {
   background-color: #fafafa;
 }

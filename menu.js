@@ -26,26 +26,26 @@ menuPrincipal.innerHTML = `
 
         <a href="${caminhoRaiz}${estruturaMenu[1].pagina}" class="link-menu">${estruturaMenu[1].nome}</a>
 
-        <div class="menu-projetos">
-          <button class="link-menu botao-projetos" type="button">
-            <span>Projetos</span><span class="indicador-projetos">▾</span>
+        <div class="menu-expansivel">
+          <button class="link-menu botao-menu" type="button">
+            <span>Projetos</span><span class="indicador-menu">▾</span>
           </button>
-          <div class="submenu-projetos">
+          <div class="submenu">
             <a href="${caminhoRaiz}${estruturaMenu[2].itens[0].pagina}" class="link-submenu">${estruturaMenu[2].itens[0].nome}</a>
           </div>
-          <div class="submenu-projetos">
+          <div class="submenu">
             <a href="${caminhoRaiz}${estruturaMenu[2].itens[1].pagina}" class="link-submenu">${estruturaMenu[2].itens[1].nome}</a>
           </div>
         </div>
 
-        <div class="menu-teorias">
-          <button class="link-menu botao-teorias" type="button">
-            <span>Teorias</span><span class="indicador-teorias">▾</span>
+        <div class="menu-expansivel">
+          <button class="link-menu botao-menu" type="button">
+            <span>Teorias</span><span class="indicador-menu">▾</span>
           </button>
-          <div class="submenu-teorias">
+          <div class="submenu">
             <a href="${caminhoRaiz}${estruturaMenu[3].itens[0].pagina}" class="link-submenu">${estruturaMenu[3].itens[0].nome}</a>
           </div>
-          <div class="submenu-teorias">
+          <div class="submenu">
             <a href="${caminhoRaiz}${estruturaMenu[3].itens[1].pagina}" class="link-submenu">${estruturaMenu[3].itens[1].nome}</a>
           </div>
         </div>
