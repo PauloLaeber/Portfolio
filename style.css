@@ -41,6 +41,14 @@ body {
   background-color: #d8dde5;
 }
 
+.link-submenu {
+  display: block;
+  color: #4a4a4a;
+  background-color: #c5c5c5;
+  text-decoration: none;
+}
+
+
 .menu-projetos {
   position: relative;
 }
@@ -78,14 +86,54 @@ body {
   transform: rotate(180deg);
 }
 
-.link-submenu {
-  display: block;
-  color: #4a4a4a;
-  background-color: #c5c5c5;
-  text-decoration: none;
+.menu-projetos.aberto .link-submenu {
+  padding: 12px 20px 12px 40px;
 }
 
-.menu-projetos.aberto .link-submenu {
+.link-submenu:hover {
+  color: #5b8def;
+  background-color: #d8dde5;
+}
+
+
+.menu-teorias {
+  position: relative;
+}
+
+.submenu-teorias {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.submenu-teorias>* {
+  overflow: hidden;
+}
+
+.menu-teorias.aberto .submenu-teorias {
+  grid-template-rows: 1fr;
+}
+
+.botao-teorias {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.indicador-teorias {
+  transition: transform 0.3s ease;
+}
+
+.menu-teorias.aberto .indicador-teorias {
+  transform: rotate(180deg);
+}
+
+.menu-teorias.aberto .link-submenu {
   padding: 12px 20px 12px 40px;
 }
 
