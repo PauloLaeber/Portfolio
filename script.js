@@ -27,7 +27,7 @@ function atualizarSecaoAtiva() {
   });
 
   if (secaoAtiva) {
-    const linkAtivo = document.querySelector('.menu-direito .link-menu[href="#${secaoAtiva.id}"]');
+    const linkAtivo = document.querySelector(`.menu-direito .link-menu[href="#${secaoAtiva.id}"]`);
 
     if (linkAtivo) {
       linkAtivo.classList.add("ativo");
