@@ -22,31 +22,46 @@ const estruturaMenu = [
 ]
 
 menuPrincipal.innerHTML = `
-        <a href="${caminhoRaiz}${estruturaMenu[0].pagina}" class="link-menu">${estruturaMenu[0].nome}</a>
+  <a href="${caminhoRaiz}${estruturaMenu[0].pagina}" class="link-menu">${estruturaMenu[0].nome}</a>
 
-        <a href="${caminhoRaiz}${estruturaMenu[1].pagina}" class="link-menu">${estruturaMenu[1].nome}</a>
+  <a href="${caminhoRaiz}${estruturaMenu[1].pagina}" class="link-menu">${estruturaMenu[1].nome}</a>
 
-        <div class="menu-expansivel">
-          <button class="link-menu botao-menu" type="button">
-            <span>Projetos</span><span class="indicador-menu">▾</span>
-          </button>
-          <div class="submenu">
-            <a href="${caminhoRaiz}${estruturaMenu[2].itens[0].pagina}" class="link-submenu">${estruturaMenu[2].itens[0].nome}</a>
-          </div>
-          <div class="submenu">
-            <a href="${caminhoRaiz}${estruturaMenu[2].itens[1].pagina}" class="link-submenu">${estruturaMenu[2].itens[1].nome}</a>
-          </div>
-        </div>
+  <div class="menu-expansivel">
+    <button class="link-menu botao-menu" type="button">
+      <span>Projetos</span><span class="indicador-menu">▾</span>
+    </button>
+    <div class="submenu">
+      <a href="${caminhoRaiz}${estruturaMenu[2].itens[0].pagina}" class="link-submenu">${estruturaMenu[2].itens[0].nome}</a>
+    </div>
+    <div class="submenu">
+      <a href="${caminhoRaiz}${estruturaMenu[2].itens[1].pagina}" class="link-submenu">${estruturaMenu[2].itens[1].nome}</a>
+    </div>
+  </div>
 
-        <div class="menu-expansivel">
-          <button class="link-menu botao-menu" type="button">
-            <span>Teorias</span><span class="indicador-menu">▾</span>
-          </button>
-          <div class="submenu">
-            <a href="${caminhoRaiz}${estruturaMenu[3].itens[0].pagina}" class="link-submenu">${estruturaMenu[3].itens[0].nome}</a>
-          </div>
-          <div class="submenu">
-            <a href="${caminhoRaiz}${estruturaMenu[3].itens[1].pagina}" class="link-submenu">${estruturaMenu[3].itens[1].nome}</a>
-          </div>
-        </div>
+  <div class="menu-expansivel">
+    <button class="link-menu botao-menu" type="button">
+      <span>Teorias</span><span class="indicador-menu">▾</span>
+    </button>
+    <div class="submenu">
+      <a href="${caminhoRaiz}${estruturaMenu[3].itens[0].pagina}" class="link-submenu">${estruturaMenu[3].itens[0].nome}</a>
+    </div>
+    <div class="submenu">
+      <a href="${caminhoRaiz}${estruturaMenu[3].itens[1].pagina}" class="link-submenu">${estruturaMenu[3].itens[1].nome}</a>
+    </div>
+  </div>
 `;
+
+
+const menuSecoes = document.querySelector('#menu-secoes');
+const secoes = document.querySelectorAll('.conteudo section[id]');
+
+secoes.forEach(function (secao) {
+  const titulo = secao.querySelector('h2');
+  const link = document.createElement('a');
+
+  link.href = `#${secao.id}`;
+  link.classList.add('link-menu');
+  link.textContent = titulo.textContent;
+
+  menuSecoes.appendChild(link);
+})

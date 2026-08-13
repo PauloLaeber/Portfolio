@@ -9,7 +9,6 @@ botoesMenu.forEach(function (botao) {
 
 
 const linksSecao = document.querySelectorAll('.menu-direito .link-menu[href^="#"]');
-const secoes = document.querySelectorAll('.conteudo section[id]');
 
 function atualizarSecaoAtiva() {
   let secaoAtiva = null;
