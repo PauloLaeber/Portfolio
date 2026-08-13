@@ -21,6 +21,10 @@ body {
 .menu-esquerdo,
 .menu-direito {
   background-color: #e5e5e5;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .navegacao {
