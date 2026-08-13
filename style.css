@@ -21,15 +21,14 @@ body {
 .menu-esquerdo,
 .menu-direito {
   background-color: #e5e5e5;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow-y: auto;
 }
 
 .navegacao {
-  display: flex;
-  flex-direction: column;
+  position: sticky;
+  top: 0;
+  align-self: start;
+  max-height: 100vh;
+  overflow-y: auto;
 }
 
 .link-menu {
@@ -109,4 +108,5 @@ body {
 .rodape {
   grid-column: 1 / 4;
   background-color: #000000;
+  min-height: 100px;
 }
