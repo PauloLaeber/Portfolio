@@ -39,6 +39,11 @@ body {
   text-decoration: none;
 }
 
+.link-menu.ativo {
+  color: #5b8def;
+  font-weight: bold;
+}
+
 .link-menu:hover {
   color: #5b8def;
   background-color: #d8dde5;
