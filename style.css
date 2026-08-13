@@ -23,7 +23,7 @@ body {
   background-color: #e5e5e5;
 }
 
-.navegacao-principal {
+.navegacao {
   display: flex;
   flex-direction: column;
 }
