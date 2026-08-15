@@ -149,6 +149,30 @@ body {
   margin: 2rem 0;
 }
 
+.figura {
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem 0;
+}
+
+.figura img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.figura iframe {
+  width: 100%;
+  border: none;
+  height: 600px;
+}
+
+.figura figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
 /* Configuração do rodapé */
 .rodape {
   grid-column: 1 / 4;

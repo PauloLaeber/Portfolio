@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard de Teste</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f5f7;
+      color: #30343b;
+    }
+
+    h1 {
+      margin: 0 0 20px;
+      font-size: 24px;
+    }
+
+    .indicadores {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 18px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .card small {
+      display: block;
+      margin-bottom: 8px;
+      color: #666;
+    }
+
+    .card strong {
+      font-size: 26px;
+    }
+
+    .grafico {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .grafico h2 {
+      margin-top: 0;
+      font-size: 18px;
+    }
+
+    svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 650px) {
+      .indicadores {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Dashboard de Teste</h1>
+
+  <div class="indicadores">
+    <div class="card">
+      <small>Observações</small>
+      <strong>12.540</strong>
+    </div>
+
+    <div class="card">
+      <small>Média</small>
+      <strong>73,4</strong>
+    </div>
+
+    <div class="card">
+      <small>Desvio padrão</small>
+      <strong>11,8</strong>
+    </div>
+  </div>
+
+  <div class="grafico">
+    <h2>Evolução mensal</h2>
+
+    <svg viewBox="0 0 800 320" role="img"
+         aria-label="Gráfico de linha mostrando uma tendência crescente">
+
+      <line x1="70" y1="260" x2="760" y2="260"
+            stroke="#999" stroke-width="2"/>
+
+      <line x1="70" y1="40" x2="70" y2="260"
+            stroke="#999" stroke-width="2"/>
+
+      <polyline
+        points="80,230 190,205 300,215 410,160 520,145 630,100 740,70"
+        fill="none"
+        stroke="#5b8def"
+        stroke-width="5"/>
+
+      <circle cx="80" cy="230" r="6" fill="#5b8def"/>
+      <circle cx="190" cy="205" r="6" fill="#5b8def"/>
+      <circle cx="300" cy="215" r="6" fill="#5b8def"/>
+      <circle cx="410" cy="160" r="6" fill="#5b8def"/>
+      <circle cx="520" cy="145" r="6" fill="#5b8def"/>
+      <circle cx="630" cy="100" r="6" fill="#5b8def"/>
+      <circle cx="740" cy="70" r="6" fill="#5b8def"/>
+
+    </svg>
+  </div>
+
+</body>
+</html>
