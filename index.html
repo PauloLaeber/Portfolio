@@ -5,6 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js" async> </script>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -30,6 +40,11 @@
           ultricies vestibulum ligula. Aenean placerat eleifend est,
           scelerisque porttitor enim sodales vehicula.
         </p>
+        <div class="equacao">
+          \[
+          \frac{1}{\sqrt{2\pi\sigma^2}} \exp{\frac{(x - \mu)^2}{2\sigma^2}} \mathbb{I}_{(-\infty, \infty)}(x), \tag{1}
+          \]
+        </div>
         <p>
           Sed ultricies iaculis leo et venenatis. Suspendisse potenti. Lorem
           ipsum dolor sit amet, consectetur adipiscing elit. Aliquam erat

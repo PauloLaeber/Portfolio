@@ -105,7 +105,7 @@ body {
 
 /* Configuração do conteúdo principal */
 .conteudo {
-  background-color: #fafafa;
+  background-color: #faf9f6;
   padding: 40px 8%;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 17px;
@@ -114,6 +114,7 @@ body {
 }
 
 .conteudo>section {
+  width: 100%;
   max-width: 900px;
 }
 
@@ -140,6 +141,12 @@ body {
 
 .texto-academico {
   text-align: justify;
+}
+
+.equacao {
+  width: 100%;
+  overflow-x: auto;
+  margin: 2rem 0;
 }
 
 /* Configuração do rodapé */
