@@ -36,3 +36,29 @@ function atualizarSecaoAtiva() {
 
 window.addEventListener("scroll", atualizarSecaoAtiva);
 atualizarSecaoAtiva();
+
+
+function limparCodigo(codigo) {
+  const linhas = codigo.textContent.split('\n');
+
+  while (linhas.length && linhas[0].trim() === '') {
+    linhas.shift();
+  }
+  while (linhas.length && linhas[linhas.length - 1].trim() === '') {
+    linhas.pop();
+  }
+
+  const indentacoes = linhas.filter(function (linha) {
+    return linha.trim() !== '';
+  }).map(function (linha) {
+    return linha.match(/^\s*/)[0].length;
+  });
+
+  const indentacaoMinima = Math.min(...indentacoes);
+
+  codigo.textContent = linhas.map(function (linha) {
+    return linha.slice(indentacaoMinima);
+  }).join('\n');
+}
+
+document.querySelectorAll('.codigo code').forEach(limparCodigo);

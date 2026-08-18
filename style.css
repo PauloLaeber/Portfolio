@@ -179,38 +179,39 @@ body {
 .celula-codigo {
   width: 100%;
   max-width: 900px;
-  margin: 2rem 0;
-
-  background-color: #282c34;
-  color: #f1f1f1;
-  border: 1px solid black;
+  background-color: #1a1b26;
+  color: #c0caf5;
+  border: 1px solid #292e42;
   border-radius: 6px 6px 6px 6px;
   overflow-x: auto;
+  margin: 2rem 0;
 }
 
 .codigo,
 .saida {
   width: 100%;
+  padding: 1rem 1.25rem;
 }
 
 .codigo pre {
   margin: 0;
+}
+
+.codigo code {
   font-family: 'Courier New', Courier, monospace;
-  padding: 1rem;
   font-size: 0.9rem;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .saida {
   margin: 0;
-  background-color: #f1f2f4;
-  color: #30343b;
+  background-color: #16161e;
+  color: #a9b1d6;
   overflow-x: auto;
 }
 
 .saida pre {
   margin: 0;
-  padding: 1rem;
   font-family: 'Courier New', Courier, monospace;
   font-size: 0.9rem;
   line-height: 1.5;
