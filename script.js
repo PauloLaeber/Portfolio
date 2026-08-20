@@ -61,8 +61,8 @@ document.querySelectorAll('.grupo-codigo').forEach(function (grupo) {
 
       aba.classList.add('ativo');
 
-      const codigoAtivo = grupo.querySelector(`.codigo[data-linguagem="${linguagem}"`);
-      const saidaAtiva = grupo.querySelector(`.saida[data-linguagem="${linguagem}"`);
+      const codigoAtivo = grupo.querySelector(`.codigo[data-linguagem="${linguagem}"]`);
+      const saidaAtiva = grupo.querySelector(`.saida[data-linguagem="${linguagem}"]`);
 
       if (codigoAtivo) { codigoAtivo.classList.add('ativo'); }
       if (saidaAtiva) { saidaAtiva.classList.add('ativo'); }
@@ -109,7 +109,6 @@ async function destacarCodigo() {
     const html = await window.shikiCodeToHtml(codigo, { lang: linguagem, theme: "tokyo-night" });
 
     bloco.parentElement.outerHTML = html;
-
   }
 }
 
