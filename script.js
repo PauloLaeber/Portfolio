@@ -62,3 +62,4 @@ function limparCodigo(codigo) {
 }
 
 document.querySelectorAll('.codigo code').forEach(limparCodigo);
+document.querySelectorAll('.saida pre').forEach(limparCodigo);
