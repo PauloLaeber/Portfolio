@@ -83,23 +83,43 @@
           Mauris elementum eu tortor non consectetur. Donec et massa sapien.
           Maecenas quis ligula elementum, ornare enim eu, interdum orci.
         </p>
-        <div class="celula-codigo">
-          <div class="codigo">
-            <pre><code>
-                import pandas as pd
-                dados = pd.read_csv("dados.csv")
-                dados.head()
-              </code></pre>
-          </div>
-          <div class="saida">
-            <pre>
-              coluna_1 coluna_2
-              0 10 20
-              1 15 25
-              2 18 31
-            </pre>
-          </div>
 
+        <div class="celula-codigo">
+          <div class="grupo-codigo">
+
+            <div class="abas-codigo">
+              <div class="aba-codigo ativo" data-linguagem="python"> Python </div>
+              <div class="aba-codigo" data-linguagem="r"> R </div>
+            </div>
+
+            <div class="codigo ativo" data-linguagem="python">
+              <pre><code>
+                  import pandas as pd
+                  dados = pd.read_csv("dados.csv")
+                  dados.head()
+                </code></pre>
+            </div>
+            <div class="codigo" data-linguagem="r">
+              <pre><code>
+                  Teste codigo R
+                </code></pre>
+            </div>
+
+            <div class="saida ativo" data-linguagem="python">
+              <pre>
+                coluna_1 coluna_2
+                0 10 20
+                1 15 25
+                2 18 31
+              </pre>
+            </div>
+            <div class="saida" data-linguagem="r">
+              <pre>
+                Saida R
+              </pre>
+            </div>
+
+          </div>
         </div>
         <p>
           Vivamus congue urna at leo lacinia, at iaculis erat mattis. Nunc

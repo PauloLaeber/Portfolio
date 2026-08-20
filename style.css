@@ -193,6 +193,14 @@ body {
   padding: 1rem 1.25rem;
 }
 
+.codigo {
+  display: none;
+}
+
+.codigo.ativo {
+  display: block;
+}
+
 .codigo pre {
   margin: 0;
 }
@@ -203,7 +211,46 @@ body {
   line-height: 1.6;
 }
 
+.grupo-codigo {
+  width: 100%;
+  max-width: 900px;
+  margin: 0;
+}
+
+.abas-codigo {
+  display: flex;
+  background-color: #16161e;
+  border: 1px solid #292e42;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  overflow-x: auto;
+}
+
+.aba-codigo {
+  padding: 0.6rem 1rem;
+  border: none;
+  background-color: transparent;
+  color: #565f89;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.aba-codigo:hover {
+  color: #7aa2f7;
+}
+
+.aba-codigo.ativo {
+  background-color: #1a1b26;
+  color: #7aa2f7;
+}
+
 .saida {
+  display: none;
+}
+
+.saida.ativo {
+  display: block;
   margin: 0;
   background-color: #16161e;
   color: #a9b1d6;

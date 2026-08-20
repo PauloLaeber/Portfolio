@@ -38,6 +38,39 @@ window.addEventListener("scroll", atualizarSecaoAtiva);
 atualizarSecaoAtiva();
 
 
+document.querySelectorAll('.grupo-codigo').forEach(function (grupo) {
+  const abas = grupo.querySelectorAll('.aba-codigo');
+  const codigos = grupo.querySelectorAll('.codigo');
+  const saidas = grupo.querySelectorAll('.saida');
+
+  abas.forEach(function (aba) {
+    aba.addEventListener('click', function () {
+      const linguagem = aba.dataset.linguagem;
+
+      abas.forEach(function (aba) {
+        aba.classList.remove('ativo');
+      });
+
+      codigos.forEach(function (codigo) {
+        codigo.classList.remove('ativo');
+      });
+
+      saidas.forEach(function (saida) {
+        saida.classList.remove('ativo');
+      })
+
+      aba.classList.add('ativo');
+
+      const codigoAtivo = grupo.querySelector(`.codigo[data-linguagem="${linguagem}"`);
+      const saidaAtiva = grupo.querySelector(`.saida[data-linguagem="${linguagem}"`);
+
+      if (codigoAtivo) { codigoAtivo.classList.add('ativo'); }
+      if (saidaAtiva) { saidaAtiva.classList.add('ativo'); }
+    });
+  });
+});
+
+
 function limparCodigo(codigo) {
   const linhas = codigo.textContent.split('\n');
 
