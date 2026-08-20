@@ -14,6 +14,10 @@
     };
   </script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js" async> </script>
+  <script type="module">
+    import {codeToHtml} from "https://esm.sh/shiki@4.4.2";
+    window.shikiCodeToHtml = codeToHtml;
+  </script>
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -30,6 +34,7 @@
 
       <section id="introducao">
         <h2>Introdução</h2>
+
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
           dapibus id mauris et porttitor. Duis consequat placerat ligula, in
@@ -40,12 +45,14 @@
           ultricies vestibulum ligula. Aenean placerat eleifend est,
           scelerisque porttitor enim sodales vehicula.
         </p>
+
         <div class="equacao">
           \[
           \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left\{-\frac{(x - \mu)^2}{2\sigma^2}\right\} \mathbb{I}_{(-\infty,
           \infty)}(x), \tag{1}
           \]
         </div>
+
         <p>
           Sed ultricies iaculis leo et venenatis. Suspendisse potenti. Lorem
           ipsum dolor sit amet, consectetur adipiscing elit. Aliquam erat
@@ -54,10 +61,12 @@
           facilisi. Fusce porttitor tellus sit amet egestas consequat. Praesent
           suscipit scelerisque commodo.
         </p>
+
         <div class="figura">
           <figcaption>Figura 1 - Séries econométricas do Brasil</figcaption>
           <img src="Imagens/seriesBrazil.jpeg">
         </div>
+
         <p>
           Vestibulum dictum, magna id accumsan ultrices, velit justo hendrerit
           enim, vel cursus quam tortor at nulla. Nullam ullamcorper facilisis
@@ -71,10 +80,12 @@
           Proin at ligula sed tellus condimentum aliquet in non nunc.
           Pellentesque semper quam vehicula ultricies aliquet.
         </p>
+
         <div class="figura">
           <figcaption>Figura 2 - Dashboard html Teste</figcaption>
           <iframe src="Dashboards/dashboard-teste.html"></iframe>
         </div>
+
         <p>
           Maecenas cursus, magna in fringilla gravida, ex purus tempus ipsum, ac
           porta velit magna id purus. Nulla eu fringilla lacus, vitae ornare
@@ -93,14 +104,14 @@
             </div>
 
             <div class="codigo ativo" data-linguagem="python">
-              <pre><code>
+              <pre><code class="codigo-fonte">
                   import pandas as pd
                   dados = pd.read_csv("dados.csv")
                   dados.head()
                 </code></pre>
             </div>
             <div class="codigo" data-linguagem="r">
-              <pre><code>
+              <pre><code class="codigo-fonte">
                   Teste codigo R
                 </code></pre>
             </div>
@@ -121,6 +132,7 @@
 
           </div>
         </div>
+
         <p>
           Vivamus congue urna at leo lacinia, at iaculis erat mattis. Nunc
           tincidunt ultricies leo. Fusce varius justo ac mauris bibendum
@@ -136,6 +148,7 @@
           mauris, sit amet tincidunt nulla dictum eu. Vestibulum ultrices
           scelerisque velit pharetra vulputate.
         </p>
+
       </section>
 
       <section id="formacao">

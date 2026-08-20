@@ -1,4 +1,6 @@
 /* Configuração geral */
+@import url('https://googleapis.com');
+
 * {
   box-sizing: border-box;
 }
@@ -206,7 +208,7 @@ body {
 }
 
 .codigo code {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
   font-size: 0.9rem;
   line-height: 1.6;
 }
@@ -259,9 +261,9 @@ body {
 
 .saida pre {
   margin: 0;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
   font-size: 0.9rem;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* Configuração do rodapé */

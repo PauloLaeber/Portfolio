@@ -96,3 +96,21 @@ function limparCodigo(codigo) {
 
 document.querySelectorAll('.codigo code').forEach(limparCodigo);
 document.querySelectorAll('.saida pre').forEach(limparCodigo);
+
+
+async function destacarCodigo() {
+  const blocos = document.querySelectorAll(".codigo .codigo-fonte");
+
+  for (const bloco of blocos) {
+    const container = bloco.closest('.codigo');
+    const linguagem = container.dataset.linguagem;
+    const codigo = bloco.textContent;
+
+    const html = await window.shikiCodeToHtml(codigo, { lang: linguagem, theme: "tokyo-night" });
+
+    bloco.parentElement.outerHTML = html;
+
+  }
+}
+
+destacarCodigo();
