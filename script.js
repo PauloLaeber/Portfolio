@@ -112,4 +112,33 @@ async function destacarCodigo() {
   }
 }
 
+
+
+function botoesCopiar(params) {
+  const botoes = document.querySelectorAll('.botao-copiar');
+
+  botoes.forEach(function (botao) {
+    botao.addEventListener('click', async function () {
+      const grupo = botao.closest('.grupo-codigo');
+      const codigoAtivo = grupo.querySelector('.codigo.ativo');
+
+      if (!codigoAtivo) {
+        return;
+      }
+
+      const codigo = codigoAtivo.textContent;
+      await navigator.clipboard.writeText(codigo);
+
+      botao.textContent = 'Copiado!';
+      botao.classList.add('copiado');
+
+      setTimeout(function () {
+        botao.textContent = 'Copiar';
+        botao.classList.remove('copiado');
+      }, 2000);
+    });
+  });
+}
+
 destacarCodigo();
+botoesCopiar();

@@ -99,8 +99,10 @@
           <div class="grupo-codigo">
 
             <div class="abas-codigo">
-              <div class="aba-codigo ativo" data-linguagem="python"> Python </div>
-              <div class="aba-codigo" data-linguagem="r"> R </div>
+              <button class="aba-codigo ativo" data-linguagem="python"> Python </button>
+              <button class="aba-codigo" data-linguagem="r"> R </button>
+              <button class="aba-codigo" data-linguagem="sql"> SQL </button>
+              <button class="botao-copiar" type="button"> Copiar </button>
             </div>
 
             <div class="codigo ativo" data-linguagem="python">
@@ -115,6 +117,13 @@
                   Teste codigo R
                 </code></pre>
             </div>
+            <div class="codigo" data-linguagem="sql">
+              <pre><code class="codigo-fonte">
+                  SELECT *
+                  FROM sales
+                  WHERE sales.date > '2026-01-01'
+                </code></pre>
+            </div>
 
             <div class="saida ativo" data-linguagem="python">
               <pre>
@@ -127,6 +136,11 @@
             <div class="saida" data-linguagem="r">
               <pre>
                 Saida R
+              </pre>
+            </div>
+            <div class="saida" data-linguagem="sql">
+              <pre>
+                Finja que há uma tabela aqui...
               </pre>
             </div>
 

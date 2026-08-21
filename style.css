@@ -266,6 +266,25 @@ body {
   line-height: 1.6;
 }
 
+.botao-copiar {
+  margin-left: auto;
+  padding: 0.6rem 1rem;
+  border: none;
+  background-color: transparent;
+  color: #565f89;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.botao-copiar:hover {
+  color: #7aa2f7;
+}
+
+.botao-copiar.copiado {
+  color: #9ece6a;
+}
+
 /* Configuração do rodapé */
 .rodape {
   grid-column: 1 / 4;
