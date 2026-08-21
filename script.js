@@ -81,10 +81,7 @@ function obterSaidaNotebook(celula) {
     return { tipo: 'html', conteudo: saida.data['text/html'].join('') };
   }
   if (saida.data && saida.data['text/plain']) {
-    return { tipo: 'texto', conteudo: saida.data['texto/plain'].join('') };
-  }
-  if (saida.data['text']) {
-    return { tipo: 'texto', conteudo: saida.text.join('') };
+    return { tipo: 'texto', conteudo: saida.data['text/plain'].join('') };
   }
 
   return null;
@@ -229,9 +226,6 @@ function botoesCopiar() {
     });
   });
 }
-
-destacarCodigo();
-botoesCopiar();
 
 
 async function inicializarCodigo() {
