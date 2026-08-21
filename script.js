@@ -1,4 +1,5 @@
 const botoesMenu = document.querySelectorAll('.botao-menu');
+const cacheNotebooks = new Map();
 
 botoesMenu.forEach(function (botao) {
   botao.addEventListener('click', function () {
@@ -70,6 +71,24 @@ document.querySelectorAll('.grupo-codigo').forEach(function (grupo) {
   });
 });
 
+
+async function obterNotebook(caminho) {
+  if (cacheNotebooks.has(caminho)) {
+    return cacheNotebooks.get(caminho);
+  }
+
+  const resposta = await fetch(caminho);
+
+  if (!resposta.ok) {
+    throw new Error(`Não foi possível carregar o notebook: ${caminho}`);
+  }
+
+  const notebook = await resposta.json();
+  cacheNotebooks.set(caminho, notebook);
+
+  return notebook;
+}
+
 function obterSaidaNotebook(celula) {
   if (!celula.outputs || celula.outputs.length === 0) {
     return null;
@@ -97,47 +116,63 @@ function preencherCodigoNotebook(linguagem, codigo) {
   });
 }
 
-function preencherSaidaNotebook(linguagem, saida) {
-  const elementos = document.querySelectorAll(`.saida[data-linguagem=${linguagem}]`);
+function preencherSaidaNotebook(elemento, saida) {
+  if (!elemento) { return; }
 
-  elementos.forEach(function (elemento) {
-    if (!saida) {
-      elemento.innerHTML = '';
-      return;
-    }
-
-    if (saida.tipo === 'html') {
-      elemento.innerHTML = saida.conteudo;
-      return;
-    }
-
-    const pre = document.createElement('pre');
-    pre.textContent = saida.conteudo;
-
-    elemento.replaceChildren(pre);
-  });
-}
-
-async function carregarNotebook(caminho, linguagem) {
-  const resposta = await fetch(caminho);
-
-  if (!resposta.ok) {
-    throw new Error(`Não foi possível carregar o notebook:  ${caminho}`);
-  }
-
-  const notebook = await resposta.json();
-  const celulaCodigo = notebook.cells.find(function (celula) {
-    return celula.cell_type === 'code';
-  });
-  if (!celulaCodigo) {
+  if (!saida) {
+    elemento.innerHTML = '';
     return;
   }
+
+  if (saida.tipo === 'html') {
+    elemento.innerHTML = saida.conteudo;
+    return;
+  }
+
+  const pre = document.createElement('pre');
+  pre.textContent = saida.conteudo;
+
+  elemento.replaceChildren(pre);
+}
+
+function obterCelulaCodigo(notebook, indice) {
+  const celula = notebook.cells[indice];
+
+  if (!celula) { throw new Error(`A célula ${indice} não existe no notebook.`); }
+
+  if (celula.cell_type !== 'code') { throw new Error(`A célula ${indice} existe, mas não é uma célula de código.`) }
+
+  return celula;
+}
+
+async function carregarCelulaNotebook(caminho, indice, elementoCodigo, elementoSaida) {
+  const notebook = await obterNotebook(caminho);
+
+  const celulaCodigo = obterCelulaCodigo(notebook, indice);
 
   const codigo = celulaCodigo.source.join('');
   const saida = obterSaidaNotebook(celulaCodigo);
 
-  preencherCodigoNotebook(linguagem, codigo);
-  preencherSaidaNotebook(linguagem, saida);
+  elementoCodigo.textContent = codigo;
+  preencherSaidaNotebook(elementoSaida, saida);
+}
+
+async function carregarCelulasNotebook() {
+  const elementos = document.querySelectorAll('.codigo[data-notebook][data-celula]');
+  const tarefas = [];
+
+  elementos.forEach(function (elementoCodigo) {
+    const caminho = elementoCodigo.dataset.notebook;
+    const indice = Number(elementoCodigo.dataset.celula);
+    const id = elementoCodigo.dataset.id
+
+    const elementoSaida = document.querySelector(`.saida[data-id="${id}"]`);
+    const codigoFonte = elementoCodigo.querySelector('.codigo-fonte');
+
+    tarefas.push(carregarCelulaNotebook(caminho, indice, codigoFonte, elementoSaida));
+  });
+
+  await Promise.all(tarefas);
 }
 
 async function carregarNotebooks() {
@@ -149,7 +184,7 @@ async function carregarNotebooks() {
     const linguagem = aba.dataset.linguagem;
 
     try {
-      await carregarNotebook(caminho, linguagem);
+      await carregarCelulaNotebook(caminho, linguagem);
     }
     catch (erro) {
       console.error(erro);
@@ -229,13 +264,18 @@ function botoesCopiar() {
 
 
 async function inicializarCodigo() {
-  await carregarNotebooks();
+  try {
+    await carregarCelulasNotebook();
 
-  document.querySelectorAll('.codigo code').forEach(limparCodigo);
-  document.querySelectorAll('.saida pre').forEach(limparCodigo);
+    document.querySelectorAll('.codigo code').forEach(limparCodigo);
+    document.querySelectorAll('.saida pre').forEach(limparCodigo);
 
-  await destacarCodigo();
+    await destacarCodigo();
 
-  botoesCopiar();
+    botoesCopiar();
+
+  } catch (erro) {
+    console.error('Erro ao inicializar células de código:', erro);
+  }
 }
 inicializarCodigo();
