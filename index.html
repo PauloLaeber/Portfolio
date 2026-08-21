@@ -99,45 +99,29 @@
           <div class="grupo-codigo">
 
             <div class="abas-codigo">
-              <button class="aba-codigo ativo" data-linguagem="python"> Python </button>
-              <button class="aba-codigo" data-linguagem="r"> R </button>
+              <button class="aba-codigo ativo" data-linguagem="python" data-notebook="exemploPython.ipynb"> Python
+              </button>
+              <button class="aba-codigo" data-linguagem="r" data-notebook="exemploR.ipynb"> R </button>
               <button class="aba-codigo" data-linguagem="sql"> SQL </button>
               <button class="botao-copiar" type="button"> Copiar </button>
             </div>
 
             <div class="codigo ativo" data-linguagem="python">
-              <pre><code class="codigo-fonte">
-                  import pandas as pd
-                  dados = pd.read_csv("dados.csv")
-                  dados.head()
-                </code></pre>
+              <pre><code class="codigo-fonte"></code></pre>
             </div>
             <div class="codigo" data-linguagem="r">
-              <pre><code class="codigo-fonte">
-                  Teste codigo R
-                </code></pre>
+              <pre><code class="codigo-fonte"></code></pre>
             </div>
             <div class="codigo" data-linguagem="sql">
               <pre><code class="codigo-fonte">
                   SELECT *
                   FROM sales
-                  WHERE sales.date > '2026-01-01'
+                  WHERE sales.date >= '2026-01-01'
                 </code></pre>
             </div>
 
-            <div class="saida ativo" data-linguagem="python">
-              <pre>
-                coluna_1 coluna_2
-                0 10 20
-                1 15 25
-                2 18 31
-              </pre>
-            </div>
-            <div class="saida" data-linguagem="r">
-              <pre>
-                Saida R
-              </pre>
-            </div>
+            <div class="saida ativo" data-linguagem="python"> </div>
+            <div class="saida" data-linguagem="r"> </div>
             <div class="saida" data-linguagem="sql">
               <pre>
                 Finja que há uma tabela aqui...

@@ -70,6 +70,96 @@ document.querySelectorAll('.grupo-codigo').forEach(function (grupo) {
   });
 });
 
+function obterSaidaNotebook(celula) {
+  if (!celula.outputs || celula.outputs.length === 0) {
+    return null;
+  }
+
+  const saida = celula.outputs[0];
+
+  if (saida.data && saida.data['text/html']) {
+    return { tipo: 'html', conteudo: saida.data['text/html'].join('') };
+  }
+  if (saida.data && saida.data['text/plain']) {
+    return { tipo: 'texto', conteudo: saida.data['texto/plain'].join('') };
+  }
+  if (saida.data['text']) {
+    return { tipo: 'texto', conteudo: saida.text.join('') };
+  }
+
+  return null;
+}
+
+function preencherCodigoNotebook(linguagem, codigo) {
+  const elementos = document.querySelectorAll(`.codigo[data-linguagem=${linguagem}]`);
+
+  elementos.forEach(function (elemento) {
+    const codigoFonte = elemento.querySelector('code');
+
+    if (codigoFonte) { codigoFonte.textContent = codigo; }
+  });
+}
+
+function preencherSaidaNotebook(linguagem, saida) {
+  const elementos = document.querySelectorAll(`.saida[data-linguagem=${linguagem}]`);
+
+  elementos.forEach(function (elemento) {
+    if (!saida) {
+      elemento.innerHTML = '';
+      return;
+    }
+
+    if (saida.tipo === 'html') {
+      elemento.innerHTML = saida.conteudo;
+      return;
+    }
+
+    const pre = document.createElement('pre');
+    pre.textContent = saida.conteudo;
+
+    elemento.replaceChildren(pre);
+  });
+}
+
+async function carregarNotebook(caminho, linguagem) {
+  const resposta = await fetch(caminho);
+
+  if (!resposta.ok) {
+    throw new Error(`Não foi possível carregar o notebook:  ${caminho}`);
+  }
+
+  const notebook = await resposta.json();
+  const celulaCodigo = notebook.cells.find(function (celula) {
+    return celula.cell_type === 'code';
+  });
+  if (!celulaCodigo) {
+    return;
+  }
+
+  const codigo = celulaCodigo.source.join('');
+  const saida = obterSaidaNotebook(celulaCodigo);
+
+  preencherCodigoNotebook(linguagem, codigo);
+  preencherSaidaNotebook(linguagem, saida);
+}
+
+async function carregarNotebooks() {
+
+  const abas = document.querySelectorAll('.aba-codigo[data-notebook]');
+
+  for (const aba of abas) {
+    const caminho = aba.dataset.notebook;
+    const linguagem = aba.dataset.linguagem;
+
+    try {
+      await carregarNotebook(caminho, linguagem);
+    }
+    catch (erro) {
+      console.error(erro);
+    }
+  }
+}
+
 
 function limparCodigo(codigo) {
   const linhas = codigo.textContent.split('\n');
@@ -114,7 +204,7 @@ async function destacarCodigo() {
 
 
 
-function botoesCopiar(params) {
+function botoesCopiar() {
   const botoes = document.querySelectorAll('.botao-copiar');
 
   botoes.forEach(function (botao) {
@@ -142,3 +232,16 @@ function botoesCopiar(params) {
 
 destacarCodigo();
 botoesCopiar();
+
+
+async function inicializarCodigo() {
+  await carregarNotebooks();
+
+  document.querySelectorAll('.codigo code').forEach(limparCodigo);
+  document.querySelectorAll('.saida pre').forEach(limparCodigo);
+
+  await destacarCodigo();
+
+  botoesCopiar();
+}
+inicializarCodigo();
