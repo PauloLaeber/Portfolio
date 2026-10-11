@@ -10,11 +10,17 @@ sempre será a mesma.
 Passos do desenvolvimento das funcionalidades básicas do portfólio, 
 lidando com HTML, CSS e Javascript.
 
-* [ ] Reorganizar o portfólio se esboço para um format apresentável.
+* [X] Fazer layout padrão das páginas.
+
+* [X] Fazer os menus de navegação.
+
+* [X] Implementar visualização de código e imagens.
+
+* [X] Reorganizar o portfólio de um teste para publicação.
 
 * [ ] Terminar a página de apresentação.
 
-* [ ] Criar páginas de navegação das seções "Projetos", "Experimentos" e "Teoria".
+* [ ] Incluir uma seção de navegação para as seções "Projetos", "Experimentos", "Teoria" e "Colas" na página inicial.
 
 * [ ] Desenvolver uma visualização de arquivos (será util?).
 
@@ -55,7 +61,7 @@ da estatística para que eu possa ser melhor com dados.
 
 ## Colas
 De vez em quando eu esqueço algumas funções e algoritmos importantes para 
-essas bibliotecas. Essas seção servirá para eu relembrar.
+essas bibliotecas. Essa seção servirá para eu relembrar.
 
 * [ ] Colas para certas bibliotecas de Python
   * [ ] Pandas
